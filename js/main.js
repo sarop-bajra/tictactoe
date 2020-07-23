@@ -29,6 +29,7 @@
     });
 
     reset.on('click',function(){
+
       let moves = Array.prototype.slice.call($(".square"));
       moves.map((m) => {
         m.innerHTML="";
