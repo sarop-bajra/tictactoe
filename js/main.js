@@ -1,24 +1,30 @@
- $(document).ready(function(){
+$(document).ready(function(){                          // DOM ready
 
-  let player1 = "X";
-  let player2 = "O";
+  const player1 = "X";                                 // Setting X to player1
+  const player2 = "O";                                 // Setting O to player2
 
-  let currentTurn = 1;
-  let movesMade = 0;
+  let currentTurn = 1;                                 // Setting currentTurn to 1
+  let movesMade = 0;                                   // Setting moves made to 0
 
-  let winnerContainer = $('.winner');
-  let reset = $('.reset');
+  const winnerContainer = $('.winner');                // Created const for css selector class winner
+  const reset = $('.reset');                           // Created const for css selector class reset
+  const sqr = $(".square");                            // Created const for css selector class square
 
-  const sqr = $(".square");
-    sqr.on('click',function() {
-      movesMade++;
-      if(currentTurn === 1){
-        event.target.innerHTML = player1;
-        currentTurn++;
+
+
+    sqr.on('click',function(event) {                   // When any squares are clicked
+      movesMade++;                                     // Clicks on squares adds 1 to movesMade
+
+      if(event.target.innerHTML === ''){               // Checks whether square is empty or not
+
+        if(currentTurn === 1){                         // Since current turn is set to 1 initially, first player is "X"
+          event.target.innerHTML = player1;
+          currentTurn++;
       } else {
-        event.target.innerHTML = player2;
-        currentTurn--;
+          event.target.innerHTML = player2;
+          currentTurn--;
       }
+    }
       if(checkForWinner()){
         if(currentTurn === 1){
           declareWinner(player2);
@@ -28,8 +34,8 @@
       }
     });
 
+
     function checkForWinner(){
-      if(movesMade > 4){
         let sqr = $('.square');
         let moves = Array.prototype.slice.call($(".square"));
         let results = moves.map(function(square){
@@ -53,13 +59,17 @@
               return false;
           }
       });
-      }
+
     };
 
     function declareWinner(winner) {
-      winnerContainer.css('display',"block");
-      reset.css('display',"block");
-      winner = winner === player1 ? "X" : "O";
+      winnerContainer.css('display',"inline");
+      reset.css('display',"inline");
+      if(winner === player1){
+        winner = "X";
+      } else {
+        winner = "O";
+      }
       winnerContainer.html(`${winner} Wins!`);
 
     };

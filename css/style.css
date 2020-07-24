@@ -9,6 +9,7 @@ h1 {
   text-align: center;
   font-size: 50px;
   color: black;
+  margin-bottom: 0px;
 }
 
 table {
@@ -52,6 +53,7 @@ table {
   display: none;
   font-size: 30px;
   color: white;
+  margin-top: 0px;
 }
 
 .reset {
