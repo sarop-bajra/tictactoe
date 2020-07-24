@@ -17,8 +17,8 @@
 
 • **List of any known bugs**
   -When the winner is decided the player can still click on the empty squares.
-  -The game allows users changing already occupied squares.
-  -When the winner is shown on the page the reset button is pushed to the left of the screen.
+  -Resolved - The game allows users changing already occupied squares.
+  -Resolved - When the winner is shown on the page the reset button is pushed to the left of the screen.
 
 • **Tech used**
   JS, HTML, CSS, jQuery
